@@ -89,3 +89,22 @@ main()
 		printf("%d\t",ptr->data);
 	}
 }
+
+
+
+Enter no.of nodes:5
+10
+23
+45
+68
+97
+Enter no.of nodes:5
+12
+34
+56
+67
+78
+10      12      23      34      45      56      67      68      78      97
+--------------------------------
+Process exited after 31.67 seconds with return value 0
+Press any key to continue . . .
