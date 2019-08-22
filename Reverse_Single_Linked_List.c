@@ -91,3 +91,24 @@ main()
 	printf("\n");
 	Display(head);
 }
+
+
+
+total nodes:5
+enter values:1
+2
+3
+4
+5
+1       2       3       4       5
+5       4       3       2       1
+--------------------------------
+Process exited after 7.66 seconds with return value 0
+Press any key to continue . . .
+
+
+
+
+
+
+
