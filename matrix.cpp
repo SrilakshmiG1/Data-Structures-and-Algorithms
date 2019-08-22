@@ -1,3 +1,25 @@
+Given a Matrix mat of N*N size, the task is to complete the function constructLinkedMatrix(), 
+that constructs a 2D linked list representation of the given matrix.
+
+Input : 2D matrix 
+1 2 3
+4 5 6
+7 8 9
+
+Output :
+1 -> 2 -> 3 -> NULL
+|    |    |
+v    v    v
+4 -> 5 -> 6 -> NULL
+|    |    |
+v    v    v
+7 -> 8 -> 9 -> NULL
+|    |    |
+v    v    v
+NULL NULL NULL
+
+
+
 #include<stdio.h>
 #include<malloc.h>
 typedef struct node
@@ -59,3 +81,21 @@ main()
 		}
 	}
 }
+
+
+
+enter size:3
+enter value:1
+enter value:2
+enter value:3
+enter value:4
+enter value:5
+enter value:6
+enter value:7
+enter value:8
+enter value:9
+1       2       3       4       5       6       7       8       9
+--------------------------------
+Process exited after 15.51 seconds with return value 0
+Press any key to continue . . .
+
