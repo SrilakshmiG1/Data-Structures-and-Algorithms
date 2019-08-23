@@ -310,7 +310,7 @@ main()
 			case 14:
 				break;
 			case 0:
-				printf("Existed successfully");
+				printf("Exited successfully");
 				break;
 			default:
 				printf("Wrong option!!");
