@@ -1,3 +1,5 @@
+//printing the boundary elements of binary elements
+
 #include<stdio.h>
 #include<malloc.h>
 typedef struct bstree
@@ -101,3 +103,5 @@ main()
 	tree=Create(tree);
 	BoundaryElements(tree);
 }
+
+
