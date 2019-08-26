@@ -18,11 +18,12 @@ q *CreateQueue()
     q *Q=NULL;
 	return Q;
 }
-void EnQueue(q *Q,s *tree)
+q *EnQueue(q *Q,s *tree)
 {
 	q *node,*temp;
 	node=(q*)malloc(sizeof(q));
 	node->ptr=tree;
+	//printf("%d",tree->data);
 	node->next=NULL;
 	if(Q==NULL)
 	{
@@ -34,6 +35,7 @@ void EnQueue(q *Q,s *tree)
 		temp->next=node;
 		temp=node;
 	}
+	return Q;
 }
 int IsEmptyQueue(Q)
 {
@@ -44,16 +46,38 @@ int IsEmptyQueue(Q)
 	return 0;
 }
 
-s *DeQueue(q *Q)
+q *DeQueue(q *Q)
 {
-	s *temp;
 	if(Q!=NULL)
 	{
-		temp=Q->ptr;
-		Q=Q->next;
-		return temp;
+		return Q;
 	}
-	return NULL;
+}
+void LevelOrder(s *tree)
+{
+	s *temp;
+	q *Q=CreateQueue();
+	if(!tree)
+	{
+		return;
+	}
+	Q=EnQueue(Q,tree);
+	while(!IsEmptyQueue(Q))
+	{
+		Q=DeQueue(Q);
+		temp=Q->ptr;
+		printf("%d\t",temp->data);
+		Q=Q->next;
+		if(temp->left)
+		{
+			Q=EnQueue(Q,temp->left);
+		}
+		if(temp->right)
+		{
+			Q=EnQueue(Q,temp->right);
+		}
+	}
+	DeleteQueue(Q);
 }
 void DeleteQueue(q *Q)
 {
@@ -69,30 +93,6 @@ void DeleteQueue(q *Q)
 		temp->next=NULL;
 		free(temp);
 	}
-}
-void LevelOrder(s *tree)
-{
-	s *temp;
-	q *Q=CreateQueue();
-	if(!tree)
-	{
-		return;
-	}
-	EnQueue(Q,tree);
-	while(!IsEmptyQueue(Q))
-	{
-		temp=DeQueue(Q);
-		printf("%d",temp->data);
-		if(temp->left)
-		{
-			EnQueue(Q,temp->left);
-		}
-		if(temp->right)
-		{
-			EnQueue(Q,temp->right);
-		}
-	}
-	DeleteQueue(Q);
 }
 
 
@@ -127,6 +127,7 @@ s *Create(s *tree)
 	}
 	return tree;
 }
+//Preorder
 void Display(s *tree)
 {
 	if(tree!=NULL)
@@ -140,6 +141,6 @@ main()
 {
 	s *tree=NULL;
 	tree=Create(tree);
-	Display(tree);
+	//Display(tree);
 	LevelOrder(tree);
 }
